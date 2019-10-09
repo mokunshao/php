@@ -93,12 +93,17 @@ $title = 'My Title';
   ?>
   <hr>
   <?php
-  $arr = ['2323', '333'];
+  $arr = ['d' => 'ww', '2323', '333', array('44')];
   echo '<pre>';
   echo print_r($arr, true);
   echo '<br>';
   print_r($arr);
   echo '</pre>';
+  echo $arr[0];
+  echo '<br>';
+  echo $arr['d'];
+  echo '<br>';
+  echo $arr[2][0];
   ?>
 </body>
 
