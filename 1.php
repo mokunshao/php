@@ -63,6 +63,12 @@ $title = 'My Title';
   print_r($e);
   ?>
   <hr>
+  <?php var_dump($e); ?>
+  <hr>
+  <?php var_dump($g); ?>
+  <hr>
+  <?php print_r($g); ?>
+  <hr>
   <?php
   $mike = 'mike';
   echo 'I am "mike"';
@@ -73,17 +79,26 @@ $title = 'My Title';
   echo '<br>';
   echo 'I am \'mike\'';
   echo '<br>';
-  echo 'I am '.$mike.' !';
+  echo 'I am ' . $mike . ' !';
   echo '<br>';
   echo "I am ${$mike} !";
   ?>
   <hr>
   <?php
-  define('NO','1212');
+  define('NO', '1212');
   const OK = '3232';
   echo NO;
   echo '<br>';
   echo OK;
+  ?>
+  <hr>
+  <?php
+  $arr = ['2323', '333'];
+  echo '<pre>';
+  echo print_r($arr, true);
+  echo '<br>';
+  print_r($arr);
+  echo '</pre>';
   ?>
 </body>
 
