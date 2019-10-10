@@ -65,3 +65,13 @@ function sum4($a, $b, $c, ...$d)
 
 echo '<hr>';
 echo sum4(1, 2, 22, 9, 77);
+
+function demo()
+{
+  $email = 'mail@mail.com';
+  return function () use ($email) {
+    return $email;
+  };
+}
+
+echo demo()();
