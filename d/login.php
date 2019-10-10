@@ -1,6 +1,6 @@
 <?php
 if (isset($_COOKIE['name'])) {
-  echo '<script>alert("不要重复登录");location.assign("/c/index.php");</script>';
+  echo '<script>alert("不要重复登录");location.assign("/d/dispatch.php?action=index");</script>';
 }
 ?>
 <html lang="en">
