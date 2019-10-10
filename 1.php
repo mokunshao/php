@@ -45,12 +45,16 @@ $title = 'My Title';
   <hr>
   <?php foreach ($g as $key => $value) { ?>
     <div><?php echo $key . ':' . $value; ?></div>
-  <?php } ?>
+  <?php }; ?>
+  <hr>
+  <?php foreach ($g as $key => $value): ?>
+    <div><?php echo $key . ':' . $value; ?></div>
+  <?php endforeach; ?>
   <hr>
   <?php
   foreach ($i as $key => $value) {
     foreach ($value as $key2 => $value2) {
-      echo '<div>' . $key . ' ' . $key2 . ' ' . $value2 . '<div>';
+      echo '<div>' . $key . ' ' . $key2 . ' ' . $value2 . '</div>';
     }
   }
   ?>
