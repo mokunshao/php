@@ -19,7 +19,5 @@ switch ($action) {
     break;
   default:
     include __DIR__ . '/index.php';
-    // echo 'default';
-    // echo '<script>location.assign("index.php");</script>';
     break;
 }
