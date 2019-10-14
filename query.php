@@ -10,7 +10,7 @@ class Query
   // 表名
   public $table;
   // 字段
-  public $field;
+  public $field = '*';
   // 条件
   public $where;
   // 数量
@@ -24,7 +24,7 @@ class Query
     $this->table = $table;
     return $this;
   }
-  public function field($field = '*')
+  public function field($field)
   {
     $this->field = $field;
     return $this;
@@ -32,6 +32,7 @@ class Query
   public function where($where)
   {
     $this->where = empty($where) ? '' : ' WHERE ' . $where;
+    return $this;
   }
   public function limit($limit)
   {
