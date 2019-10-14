@@ -45,7 +45,7 @@ class Demo
   {
     return $name . print_r($args, true);
   }
-  public function __callStatic($name, $args)
+  public static function __callStatic($name, $args)
   {
     return $name . print_r($args, true);
   }
