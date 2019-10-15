@@ -43,7 +43,17 @@ class DB implements iCURD
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
   public function update($data, $where)
-  { }
+  {
+    $set = '';
+    foreach ($data as $key => $value) {
+      $set .= $key . ' = :' . $key . ', ';
+    }
+    $set = rtrim($set, ', ');
+    $sql = 'UPDATE ' . $this->table . ' SET ' . $set . ' WHERE ' . $where;
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute($data);
+    return $stmt->rowCount();
+  }
   public function delete($where)
   {
     $sql = 'DELETE FROM ' . $this->table . ' WHERE ' . $where;
@@ -58,3 +68,4 @@ $db = new DB('mysql:host=localhost:8889;dbname=haha', 'root', 'root', 'test');
 // print_r($db->create(['name' => '小明', 'score' => 12]));
 // print_r($db->delete('uid = 18'));
 // print_r($db->read('name, uid', 'uid > 3', '0,6'));
+// print_r($db->update(['name' => 'mika', 'score' => 666], 'uid = 10'));
