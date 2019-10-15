@@ -33,8 +33,15 @@ class DB implements iCURD
       'id' => $this->pdo->lastInsertId()
     ];
   }
-  public function read()
-  { }
+  public function read($field = '*', $where = '', $limit = '')
+  {
+    $where = empty($where) ? '' : ' WHERE ' . $where;
+    $limit = empty($limit) ? '' : ' LIMIT ' . $limit;
+    $sql = 'SELECT ' . $field . ' FROM ' . $this->table  . $where . $limit;
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
   public function update($data, $where)
   { }
   public function delete($where)
@@ -50,3 +57,4 @@ $db = new DB('mysql:host=localhost:8889;dbname=haha', 'root', 'root', 'test');
 
 // print_r($db->create(['name' => '小明', 'score' => 12]));
 // print_r($db->delete('uid = 18'));
+// print_r($db->read('name, uid', 'uid > 3', '0,6'));
