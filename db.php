@@ -23,4 +23,9 @@ class DB
   }
 }
 
-DB::table('test')->select();
+$data = DB::table('test')->field('name')->where('name = "go"')->limit(1)->select();
+
+foreach ($data as $key => $value) {
+  print_r($value);
+  echo '<br>';
+}
