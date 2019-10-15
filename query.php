@@ -2,6 +2,8 @@
 
 namespace query;
 
+use PDO;
+
 // 数据库查询类
 class Query
 {
@@ -44,6 +46,7 @@ class Query
     $sql = 'SELECT ' . $this->field . ' FROM ' . $this->table . $this->where . $this->limit;
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
-    die($stmt->debugDumpParams());
+    // die($stmt->debugDumpParams());
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 }
