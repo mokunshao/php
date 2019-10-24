@@ -42,7 +42,6 @@ class Controller
     return $container->make('view')->render($data);
   }
 }
-$model = new Model();
-$view = new View();
+
 $controller = new Controller();
 echo $controller->index($container);
