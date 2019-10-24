@@ -1,4 +1,7 @@
 <?php
+
+namespace _h2;
+
 require './Model.php';
 require './View.php';
 class Controller
@@ -6,7 +9,8 @@ class Controller
   // 依赖注入
   public function index(View $view, Model $model)
   {
-    return $view->render($model->getData());
+    $data = $model->getData();
+    return $view->render($data);
   }
 }
 $model = new Model();
